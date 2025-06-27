@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Quiz Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Quiz Application</h1>
+
+  <!-- Question Addition Form -->
+  <div id="question-form">
+    <h2>Add a New Question</h2>
+    
+    <label><input type="radio" name="question-type" value="mcq" checked> Single Answer (MCQ)</label>
+    <label><input type="radio" name="question-type" value="multi"> Multi-Answer</label>
+    <label><input type="radio" name="question-type" value="fill"> Fill in the Blank</label>
+
+    <input type="text" id="new-question" placeholder="Enter your question here">
+
+    <div id="mcq-inputs">
+      <input class="answer" placeholder="Option 1">
+      <input class="answer" placeholder="Option 2">
+      <input class="answer" placeholder="Option 3">
+      <input class="answer" placeholder="Option 4">
+      <p>Select correct option:</p>
+      <label><input type="radio" name="correct" value="0"> 1</label>
+      <label><input type="radio" name="correct" value="1"> 2</label>
+      <label><input type="radio" name="correct" value="2"> 3</label>
+      <label><input type="radio" name="correct" value="3"> 4</label>
+    </div>
+
+    <div id="multi-inputs" style="display: none;">
+      <input class="multi-answer" placeholder="Option 1"><input type="checkbox" class="multi-correct" value="0">
+      <input class="multi-answer" placeholder="Option 2"><input type="checkbox" class="multi-correct" value="1">
+      <input class="multi-answer" placeholder="Option 3"><input type="checkbox" class="multi-correct" value="2">
+      <input class="multi-answer" placeholder="Option 4"><input type="checkbox" class="multi-correct" value="3">
+    </div>
+
+    <div id="fill-input" style="display: none;">
+      <input id="fill-answer" placeholder="Correct Answer (fill in the blank)">
+    </div>
+
+    <button onclick="addQuestion()">Add Question</button>
+    <button onclick="startQuiz()">Start Quiz</button>
+  </div>
+
+  <!-- Quiz Display -->
+  <div id="quiz" style="display: none;">
+    <h2 id="question-number"></h2>
+    <p id="question-text"></p>
+    <div id="answer-buttons"></div>
+
+    <div class="nav-buttons">
+      <button id="prev-btn" onclick="prevQuestion()">Previous</button>
+      <button id="skip-btn" onclick="skipQuestion()">Skip</button>
+      <button id="next-btn" onclick="nextQuestion()">Next</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
